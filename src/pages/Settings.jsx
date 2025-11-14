@@ -1,54 +1,53 @@
-import React, { useState } from 'react'
-import { Scroll } from '../Render/Scroll'
-import { Hover } from '../Render/Hover'
+// pages/Settings.jsx
+import React, { useState } from 'react';
+import { Scroll } from '../Render/Scroll';
+import { Hover } from '../Render/Hover';
 import { ClickTrigger } from '../Render/Click';
 
-const triggerOptions = [
-    {
-        label: 'Scroll',
-        value: 'scroll'
-    },
-    {
-        label: 'Click',
-        value: 'click'
-    },
-    {
-        label: 'Hover',
-        value: 'hover'
-    },
-]
+const triggerOptions = ["scroll", "hover", "click", "load"];
 
-export const Settings = ({ attribute, setAttribute }) => {
-    const [trigger, setTrigger] = useState([])
+export const Settings = ({ triggers, setTriggerAttribute }) => {
     const [open, setOpen] = useState(false);
+    const [activeTriggers, setActiveTriggers] = useState([]);
 
-    const renderComponent = (type) => {
-        switch (type) {
-            case 'scroll': return <Scroll attribute={attribute} setAttribute={setAttribute} />;
-            case 'hover': return <Hover attribute={attribute} setAttribute={setAttribute} />;
-            case 'click': return <ClickTrigger attribute={attribute} setAttribute={setAttribute} />;
-            default:
-                break;
+    const addTrigger = (type) => {
+        if (!activeTriggers.includes(type)) {
+            setActiveTriggers([...activeTriggers, type]);
         }
+    };
 
-    }
+    const renderControls = (type, index) => {
+        const attr = triggers[type];
+        switch (type) {
+            case "scroll":
+                return <Scroll key={index} attribute={attr} setAttribute={(k, v) => setTriggerAttribute(type, k, v)} />;
+            case "hover":
+                return <Hover key={index} attribute={attr} setAttribute={(k, v) => setTriggerAttribute(type, k, v)} />;
+            case "click":
+                return <ClickTrigger key={index} attribute={attr} setAttribute={(k, v) => setTriggerAttribute(type, k, v)} />;
+            default:
+                return null;
+        }
+    };
 
     return (
-        <React.Fragment>
-            <button onClick={() => setOpen(true)}>+</button>
+        <div className="settings-panel">
+            <button onClick={() => setOpen(!open)}>+</button>
+
             {open &&
-                triggerOptions.map((tri, index) => (
-                    <ul key={index}>
-                        <li onClick={() => setTrigger([...trigger, tri.value])}>{tri.label}</li>
+                triggerOptions.map((type, i) => (
+                    <ul key={i}>
+                        <li onClick={() => addTrigger(type)}>{type}</li>
                     </ul>
                 ))
             }
-            {trigger.map((tri, index) => (
-                <React.Fragment key={index}>
-                    {renderComponent(tri)}
-                </React.Fragment>
-            ))}
 
-        </React.Fragment>
-    )
-}
+            {activeTriggers.map((type, index) => (
+                <div key={index} className="trigger-settings">
+                    <h4>{type} Settings</h4>
+                    {renderControls(type, index)}
+                </div>
+            ))}
+        </div>
+    );
+};
