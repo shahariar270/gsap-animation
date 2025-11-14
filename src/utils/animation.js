@@ -2,11 +2,13 @@ import gsap from "gsap";
 
 
 export class Animation {
-    constructor(element) {
+    constructor(element, attribute) {
         this.element = element;
-        console.log(this.element);
+        this.attribute = attribute;
+
+        const { scale } = this.attribute;
     }
     animate() {
-      
+
     }
 }

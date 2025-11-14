@@ -11,16 +11,15 @@ function App() {
     setAttributeState(prev => ({ ...prev, [key]: value }));
   };
 
-  console.log({attribute});
   useEffect(() => {
     const element = document.getElementById('box')
 
     if (element) {
-      const anim = new Animation(element);
+      const anim = new Animation(element, attribute);
       anim.animate();
     }
 
-  }, []);
+  }, [attribute]);
 
   return (
     <React.Fragment>
