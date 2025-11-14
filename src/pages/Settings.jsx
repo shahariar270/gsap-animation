@@ -25,8 +25,8 @@ export const Settings = ({ attribute, setAttribute }) => {
     const renderComponent = (type) => {
         switch (type) {
             case 'scroll': return <Scroll attribute={attribute} setAttribute={setAttribute} />;
-            case 'hover': return <Hover {...props} />;
-            case 'click': return <ClickTrigger {...props} />;
+            case 'hover': return <Hover attribute={attribute} setAttribute={setAttribute} />;
+            case 'click': return <ClickTrigger attribute={attribute} setAttribute={setAttribute} />;
             default:
                 break;
         }
