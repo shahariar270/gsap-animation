@@ -1,11 +1,17 @@
 import './App.css'
+import React from 'react'
 
 function App() {
 
   return (
-    <>
-    <h1>hello bangladesh</h1>
-    </>
+    <React.Fragment>
+      <div className="container">
+        <div className="wrapper">
+        </div>
+        <div className="settings">
+        </div>
+      </div>
+    </React.Fragment>
   )
 }
 
