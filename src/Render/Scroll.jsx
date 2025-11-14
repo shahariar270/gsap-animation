@@ -2,13 +2,8 @@ import React from 'react'
 
 export const Scroll = ({ attribute, setAttribute }) => {
 
-  const handleChange = (e) => {
-    const value = parseFloat(e.target.value);
-    setAttribute('scale', value)
-  }
-  console.log({ attribute });
   return (
-    <div>
+    <div className='controls'>
       <label>
         Scale: {attribute.scale}
         <input
