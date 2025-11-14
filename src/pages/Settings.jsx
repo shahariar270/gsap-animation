@@ -27,7 +27,7 @@ export const Settings = () => {
     const setAttribute = (key, value) => {
         setAttributeState(prev => ({ ...prev, [key]: value }));
     };
-    
+
     const renderComponent = (type) => {
         switch (type) {
             case 'scroll': return <Scroll attribute={attribute} setAttribute={setAttribute} />;
@@ -43,8 +43,8 @@ export const Settings = () => {
         <React.Fragment>
             <button onClick={() => setOpen(true)}>+</button>
             {open &&
-                triggerOptions.map((tri) => (
-                    <ul>
+                triggerOptions.map((tri, index) => (
+                    <ul key={index}>
                         <li onClick={() => setTrigger([...trigger, tri.value])}>{tri.label}</li>
                     </ul>
                 ))
