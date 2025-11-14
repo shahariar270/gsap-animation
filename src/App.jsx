@@ -1,5 +1,6 @@
 import './App.css'
 import React from 'react'
+import { Settings } from './pages/Settings'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
         <div className="wrapper">
         </div>
         <div className="settings">
+          <Settings />
         </div>
       </div>
     </React.Fragment>
