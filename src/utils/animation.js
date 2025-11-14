@@ -8,9 +8,17 @@ export class Animation {
         this.attribute = attribute;
 
     }
+    destroy() {
+        if (this.currentAnimation) {
+            this.currentAnimation.kill();
+            ScrollTrigger.getAll().forEach(t => t.kill()); // remove scroll triggers if needed
+        }
+    }
+
     animate() {
         if (!this.attribute) return;
         const { animationType, triggerType } = this.attribute;
+        this.destroy();
         const animationProps = {
             from: {},
             to: {}

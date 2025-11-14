@@ -18,6 +18,7 @@ function App() {
       const anim = new Animation(element, attribute);
       anim.animate();
     }
+    console.log({attribute});
 
   }, [attribute]);
 
