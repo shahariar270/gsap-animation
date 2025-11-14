@@ -8,13 +8,12 @@ function App() {
   useEffect(() => {
     const element = document.getElementById('box')
 
-
     if (element) {
       const anim = new Animation(element);
       anim.animate();
     }
 
-  }, [])
+  }, []);
 
   return (
     <React.Fragment>
