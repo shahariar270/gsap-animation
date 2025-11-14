@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Scroll } from '../Render/Scroll'
 import { Hover } from '../Render/Hover'
 import { ClickTrigger } from '../Render/Click';
-import { getAttribute } from '../utils/helper';
 
 const triggerOptions = [
     {
@@ -22,11 +21,6 @@ const triggerOptions = [
 export const Settings = ({ attribute, setAttribute }) => {
     const [trigger, setTrigger] = useState([])
     const [open, setOpen] = useState(false);
-    // const [attribute, setAttributeState] = useState(getAttribute());
-
-    // const setAttribute = (key, value) => {
-    //     setAttributeState(prev => ({ ...prev, [key]: value }));
-    // };
 
     const renderComponent = (type) => {
         switch (type) {
