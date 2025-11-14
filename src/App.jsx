@@ -1,10 +1,17 @@
 import './App.css'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Settings } from './pages/Settings'
 import { Animation } from './utils/animation'
+import { getAttribute } from './utils/helper';
 
 function App() {
+  const [attribute, setAttributeState] = useState(getAttribute());
 
+  const setAttribute = (key, value) => {
+    setAttributeState(prev => ({ ...prev, [key]: value }));
+  };
+
+  console.log({attribute});
   useEffect(() => {
     const element = document.getElementById('box')
 
@@ -22,7 +29,7 @@ function App() {
           <div className="box" id='box'></div>
         </div>
         <div className="settings">
-          <Settings />
+          <Settings attribute={attribute} setAttribute={setAttribute} />
         </div>
       </div>
     </React.Fragment>

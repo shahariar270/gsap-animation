@@ -19,14 +19,14 @@ const triggerOptions = [
     },
 ]
 
-export const Settings = () => {
+export const Settings = ({ attribute, setAttribute }) => {
     const [trigger, setTrigger] = useState([])
     const [open, setOpen] = useState(false);
-    const [attribute, setAttributeState] = useState(getAttribute());
+    // const [attribute, setAttributeState] = useState(getAttribute());
 
-    const setAttribute = (key, value) => {
-        setAttributeState(prev => ({ ...prev, [key]: value }));
-    };
+    // const setAttribute = (key, value) => {
+    //     setAttributeState(prev => ({ ...prev, [key]: value }));
+    // };
 
     const renderComponent = (type) => {
         switch (type) {
