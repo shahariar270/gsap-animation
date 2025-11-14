@@ -17,7 +17,17 @@ export class Animation {
 
     animate() {
         if (!this.attribute) return;
-        const { animationType, triggerType } = this.attribute;
+        const {
+            animationType,
+            triggerType,
+            x,
+            xTo,
+            y,
+            yTo,
+            opacityTo,
+            opacity,
+        } = this.attribute;
+
         this.destroy();
         const animationProps = {
             from: {},
@@ -33,8 +43,16 @@ export class Animation {
             animationProps.to = { opacity: 1, x: 0, rotationY: 0, duration: 1.2, ease: "power3.out" };
 
         } else if (animationType === "custom") {
-            animationProps.from = { opacity: 0, x: 100, y: -100, scale: 0.5, rotation: 360 };
-            animationProps.to = { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 1.5, ease: "elastic.out(1,0.5)" };
+            animationProps.from = {
+                opacity: opacity,
+                x: x,
+                y: y,
+            };
+            animationProps.to = {
+                opacity: opacityTo,
+                x: xTo,
+                y: yTo,
+            };
         }
         //trigger control
         if (triggerType === 'scroll') {

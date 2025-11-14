@@ -1,7 +1,10 @@
 export const getAttribute = () => ({
   x: 0,
-  y: 50,
+  xTo: 0,
+  y: 0,
+  yTo: 0,
   opacity: 0,
+  opacityTo: 0,
   duration: 1,
   delay: 0,
   ease: "power3.out",
@@ -11,6 +14,6 @@ export const getAttribute = () => ({
   repeat: 0,
   yoyo: false,
   transformOrigin: "50% 50%",
-  animationType:'fade',
-  triggerType:'hover'
+  animationType: 'fade',
+  triggerType: 'hover'
 });

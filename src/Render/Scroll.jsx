@@ -32,14 +32,65 @@ export const Scroll = ({ attribute, setAttribute }) => {
       {attribute.animationType === 'custom' &&
         <>
           <label>
-            Scale: {attribute.scale}
+            X From: {attribute.x}
             <input
               type="range"
-              min="0.1"
-              max="10"
-              step="0.1"
-              value={attribute.scale}
-              onChange={(e) => setAttribute('scale', parseFloat(e.target.value))}
+              min="1"
+              max="200"
+              value={attribute.x}
+              onChange={(e) => setAttribute('x', parseFloat(e.target.value))}
+            />
+          </label>
+          <label>
+            x To: {attribute.xTo}
+            <input
+              type="range"
+              min="1"
+              max="200"
+              value={attribute.xTo}
+              onChange={(e) => setAttribute('xTo', parseFloat(e.target.value))}
+            />
+          </label>
+          <label>
+            Y From: {attribute.y}
+            <input
+              type="range"
+              min="1"
+              max="200"
+              value={attribute.y}
+              onChange={(e) => setAttribute('y', parseFloat(e.target.value))}
+            />
+          </label>
+          <label>
+            Y To: {attribute.yTo}
+            <input
+              type="range"
+              min="1"
+              max="200"
+              value={attribute.yTo}
+              onChange={(e) => setAttribute('yTo', parseFloat(e.target.value))}
+            />
+          </label>
+          <label>
+            opacity From: {attribute.opacity}
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step='0.1'
+              value={attribute.opacity}
+              onChange={(e) => setAttribute('opacity', parseFloat(e.target.value))}
+            />
+          </label>
+          <label>
+            Y To: {attribute.opacityTo}
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step='0.1'
+              value={attribute.opacityTo}
+              onChange={(e) => setAttribute('opacityTo', parseFloat(e.target.value))}
             />
           </label>
         </>
