@@ -39,6 +39,7 @@ function App() {
       </div>
       <div className="settings">
         <Settings triggers={triggers} setTriggerAttribute={setTriggerAttribute} />
+        <SplitText />
       </div>
     </div>
   );
