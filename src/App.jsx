@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Settings } from './pages/Settings';
 import { Animation } from './utils/animation';
 import { getAttribute } from './utils/helper';
+import { SplitText } from './pages/Split';
 
 function App() {
   const [triggers, setTriggers] = useState({
