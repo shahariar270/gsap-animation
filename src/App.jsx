@@ -37,6 +37,10 @@ function App() {
       <div className="wrapper">
         <div className="box" id="box"></div>
       </div>
+      <div className="textWrapper">
+        <h1>Hello word</h1>
+      </div>
+
       <div className="settings">
         <Settings triggers={triggers} setTriggerAttribute={setTriggerAttribute} />
         <SplitText />
